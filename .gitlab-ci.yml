@@ -1,0 +1,8 @@
+stages:
+  - test
+
+unit:
+  stage: test
+  script:
+    - cargo build --all-targets
+    - cargo test
