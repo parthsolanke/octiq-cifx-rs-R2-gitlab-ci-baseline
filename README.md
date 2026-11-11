@@ -1,3 +1,5 @@
+<!-- Baseline README for the GitLab CI detection fixture. -->
+
 # R2-gitlab-ci-baseline
 
 AC 3. GitLab CI detection must be unchanged.
