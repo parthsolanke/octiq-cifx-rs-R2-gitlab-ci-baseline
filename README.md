@@ -1,17 +1,48 @@
-# R2-gitlab-ci-baseline
+# fixture
 
-AC 3. GitLab CI detection must be unchanged.
+A small, dependency-free Rust library built and tested with GitLab CI. It exposes two public functions:
 
-## How to test
+- `add(a, b)` — returns the sum of two `i32` values.
+- `double(a)` — returns an `i32` doubled.
 
-1. Octiq QA -> Import -> GitHub -> this repo
-2. In chat: `add a comment at the top of the README`
-3. Read the two lines in the reply.
+## Project layout
 
-**Line 1 (the CI verdict - THIS IS THE TEST):**
+- `src/lib.rs` — the library source and its unit tests (`mod tests`).
+- `tests/integration.rs` — integration tests that consume the public API from outside the crate.
+- `.gitlab-ci.yml` — the GitLab CI pipeline definition.
+- `Cargo.toml` — the crate manifest (name `fixture`, edition 2021, no dependencies).
 
-    Tests required - CI runs `cargo test`
+## Build
 
-**Line 2 (the build/test outcome):**
+```sh
+cargo build --all-targets
+```
 
-    Tests passed - 4 passed        (or a real failure, never "no recipe")
+This compiles the library along with its test targets. Because the crate has no dependencies, the build is fast.
+
+## Test
+
+```sh
+cargo test
+```
+
+`cargo test` runs both the unit tests in `src/lib.rs` and the integration tests in `tests/integration.rs`. All tests should pass.
+
+## GitLab CI pipeline
+
+The pipeline is defined in `.gitlab-ci.yml` and has a single `test` stage with one job, `unit`.
+
+```yaml
+stages:
+  - test
+
+unit:
+  stage: test
+  script:
+    - cargo build --all-targets
+    - cargo test
+```
+
+On every push, GitLab runs the `unit` job, which builds all targets and then runs the full test suite with `cargo test`. The pipeline succeeds only when the build and all tests pass.
+
+To run the same steps locally, execute the two script commands above from the repository root with a Rust toolchain installed. To inspect the pipeline in GitLab, open the repository's **CI/CD → Pipelines** page and select the run for your commit.
