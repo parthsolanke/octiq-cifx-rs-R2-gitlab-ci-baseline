@@ -21,4 +21,24 @@ mod tests {
     fn doubles() {
         assert_eq!(double(21), 42);
     }
+
+    #[test]
+    fn adds_negative() {
+        assert_eq!(add(-5, 3), -2);
+    }
+
+    #[test]
+    fn adds_zero() {
+        assert_eq!(add(7, 0), 7);
+    }
+
+    #[test]
+    fn doubles_zero() {
+        assert_eq!(double(0), 0);
+    }
+
+    #[test]
+    fn doubles_negative() {
+        assert_eq!(double(-8), -16);
+    }
 }

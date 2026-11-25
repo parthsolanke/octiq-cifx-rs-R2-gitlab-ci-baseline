@@ -38,7 +38,7 @@ cargo build --all-targets
 cargo test
 ```
 
-The test suite comprises two unit tests and two integration tests, for four
+The test suite comprises six unit tests and four integration tests, for ten
 tests total.
 
 ## How to test
@@ -53,4 +53,4 @@ tests total.
 
 **Line 2 (the build/test outcome):**
 
-    Tests passed - 4 passed        (or a real failure, never "no recipe")
+    Tests passed - 10 passed        (or a real failure, never "no recipe")
