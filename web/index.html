@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fixture playground</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>fixture playground</h1>
+      <p class="subtitle">
+        A tiny frontend for the crate's <code>add</code> and <code>double</code>
+        functions.
+      </p>
+
+      <form id="calculator" class="fields">
+        <label>
+          a
+          <input id="a" type="number" value="2" step="1" />
+        </label>
+        <label>
+          b
+          <input id="b" type="number" value="2" step="1" />
+        </label>
+        <div class="actions">
+          <button type="submit" value="add" name="op">Add</button>
+          <button type="submit" value="double" name="op">Double a</button>
+        </div>
+      </form>
+
+      <output id="result" class="result">Result: 4</output>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
