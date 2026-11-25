@@ -19,3 +19,13 @@ fn add_handles_negatives_from_outside() {
 fn double_handles_zero_from_outside() {
     assert_eq!(double(0), 0);
 }
+
+#[test]
+fn add_handles_zero_from_outside() {
+    assert_eq!(add(0, 0), 0);
+}
+
+#[test]
+fn double_handles_negatives_from_outside() {
+    assert_eq!(double(-3), -6);
+}
